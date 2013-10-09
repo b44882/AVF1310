@@ -1,3 +1,7 @@
+<!--
+	iOS APP
+-->
+
 <!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
@@ -27,109 +31,53 @@
         <title>Recipeasy</title>
     </head>
     <body>
-<!-- HOME-->
+<!-- HOME - LAUNCH -->
 	
 		<section data-role="page" id="home">
 	
 			<header data-role="header" data-position="fixed">
-				<h1>Recipeasy</h1>
+				<h1>
+					Swiss Army App
+				</h1>
 			</header>
+			
 			<section data-role="content">
-				<div data-role="collapsible-set">
-					<div data-role="collapsible">
-						<h3>
-							Brett Gear
-						</h3>
-					</div>
-					<div data-role="collapsible">
-						<h3>
-							AVF 1310
-						</h3>
-					</div>
-					<div data-role="collapsible" data-collapsed="false">
-						<h3>
-							Research Topics
-						</h3>
-						<ul>
-							<li>Week 1: Phonegap + various native features.</li>
-							<li>Week 2: Finalize Application Concept + research native feature usage + Experiment CSS Layouts</li>
-							<li>Week 3: Continuing Various Research TBD.</li>
-							<li>Week 4: Continuing Various Research TBD.</li>
-						<ul>
-					</div>
-					<div data-role="collapsible" data-collapsed="false">
-						<h3>
-							Native Features
-						</h3>
-						<ul>
-							<li>Camera</li>
-							<li>Video</li>
-							<li>More Features TBD after app finalization</li>
-						<ul>
-					</div>
-					<div data-role="collapsible" data-collapsed="false">
-						<h3>
-							Data APIs
-						</h3>
-						<ul>
-							<li>Instagram API inspiration</li>
-							<li>Pintrest API for inspiration</li>
-						<ul>
-					</div>
-				</div>
-				<a href="#create" id="create" data-role="button" data-theme="e">Create Recipe</a>
-				</br></br>
-				<section id="storage">
-					<p>There are no recipes.</p>
-				</section>
+				<h1>
+					Brett Gear - Swiss Army App - AVF 1310
+				</h1>
+			
+				<article id="instagram">
+					<h2>
+						Instagram
+					</h2>
+					<p>
+						Recent five (5) Instagram images with the forest tag.
+					</p>
+					<section id="instagram_dump">
+					</section>
+				</article>
+				
+				<article id="youtube">
+					<h2>
+						Youtube
+					</h2>
+					<p>
+						Recent video with search term "Forest".
+					</p>
+					<section id="youtube_dump">
+					</section>
+				</article>
+				
+				<a data-role="button" data-inline="true" data-theme="e" href="#" id="reload">
+                	Reload
+                </a>
 			</section>
-		
-		
+			
 		
 			<footer data-role="footer" data-position="fixed">
 			</footer>
 		
 		</section> 
-		
-<!-- CREATE -->
-
-	<section data-role="page" id="create">
-	
-		<header data-role="header" data-position="fixed">
-			<a href="#" data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
-			<h1>Create Recipe</h1>
-		</header>
-		
-		<section data-role="content">
-			<form id="exeform">
-				<div data-role="fieldcontain">
-					<label for="textinput1">
-						Recipe Title
-					</label>
-					<input name="" id="textinput1" placeholder="" value="" type="text">
-				</div>
-				<div data-role="fieldcontain">
-					<label for="textarea1">
-						Description
-					</label>
-					<textarea name="" id="textarea1" placeholder=""></textarea>
-				</div>
-				<a data-role="button" data-theme="b" href="#">
-					Take Picture
-				</a>
-				<input type="submit" value="Create Recipe" data-theme="c" data-inline="true"/>
-				<input type="reset" value="Reset" data-theme="b" data-inline="true" data-mini="true"/>
-			</form>
-		</section>
-		
-		<footer data-role="footer" data-position="fixed">
-		
-		<h1>Footer</h1>
-		
-		</footer>
-		
-	</section> 
-
 			
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>

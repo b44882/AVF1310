@@ -15,7 +15,27 @@
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
- */
+ */ 
+ 
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady(){
+	console.log("Device is ready.");
+	var url = "https://api.instagram.com/v1/tags/forest/media/recent?callback=?&amp;client_id=3a67c6def88b49ba9e4ef9c497c856ee";
+	$.getJSON(url, function(info){
+		console.log("Received JSON data from Instagram");
+		for(var i=0, j=5; i<j; i++){
+			var obj = info.data[i].images.thumbnail.url;
+			console.log(obj);
+			$('<img src="' + obj + '"></img>').appendTo("#instagram_dump");
+		};
+	});
+    $("#reload").on("click", function(){
+        window.location.reload();
+    });
+};
+ 
+/*
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,3 +67,4 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+*/
