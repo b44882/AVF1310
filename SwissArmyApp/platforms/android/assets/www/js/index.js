@@ -21,15 +21,25 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
 	console.log("Device is ready.");
-	var url = "https://api.instagram.com/v1/tags/forest/media/recent?callback=?&amp;client_id=3a67c6def88b49ba9e4ef9c497c856ee";
-	$.getJSON(url, function(info){
+	
+	var urlInst = "https://api.instagram.com/v1/tags/forest/media/recent?callback=?&amp;client_id=3a67c6def88b49ba9e4ef9c497c856ee";
+	$.getJSON(urlInst, function(info){
 		console.log("Received JSON data from Instagram");
 		for(var i=0, j=5; i<j; i++){
 			var obj = info.data[i].images.thumbnail.url;
-			console.log(obj);
-			$('<img src="' + obj + '"></img>').appendTo("#instagram_dump");
+			$('<img class="dump" src="' + obj + '"></img>').appendTo("#instagram_dump");
 		};
 	});
+	
+	var urlFlick = "http://api.flickr.com/services/feeds/photos_public.gne?tags=forest&tagmode=any&format=json&jsoncallback=?";
+	$.getJSON(urlFlick, function(info){
+		console.log("Received JSON data from Flickr");
+		for(var i=0, j=5; i<j; i++){
+			var obj = info.items[i].media.m;
+			$('<img class="dump" src="' + obj + '"></img>').appendTo("#flickr_dump");
+		}	
+	});
+	
     $("#reload").on("click", function(){
         window.location.reload();
     });
