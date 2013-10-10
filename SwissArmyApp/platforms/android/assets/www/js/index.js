@@ -17,7 +17,7 @@
  * under the License.
  */ 
  
-document.addEventListener("deviceready", onDeviceReady, false);
+
 
 function onDeviceReady(){
 	console.log("Device is ready.");
@@ -44,7 +44,8 @@ function onDeviceReady(){
         window.location.reload();
     });
 };
- 
+
+document.addEventListener("deviceready", onDeviceReady, false);
 /*
 var app = {
     // Application Constructor
