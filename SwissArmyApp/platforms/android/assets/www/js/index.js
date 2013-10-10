@@ -37,7 +37,8 @@ function onDeviceReady(){
 		for(var i=0, j=5; i<j; i++){
 			var obj = info.items[i].media.m;
 			$('<img class="dump" src="' + obj + '"></img>').appendTo("#flickr_dump");
-		}	
+		}
+		$('<p>Flickr Dump Complete.</p>').appendTo("#flickr_dump");	
 	});
 	
     $("#reload").on("click", function(){
@@ -46,6 +47,8 @@ function onDeviceReady(){
 };
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
+
 /*
 var app = {
     // Application Constructor
