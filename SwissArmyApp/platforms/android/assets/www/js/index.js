@@ -38,7 +38,6 @@ function onDeviceReady(){
 			var obj = info.items[i].media.m;
 			$('<img class="dump" src="' + obj + '"></img>').appendTo("#flickr_dump");
 		}
-		$('<p>Flickr Dump Complete.</p>').appendTo("#flickr_dump");	
 	});
 	
     $("#reload").on("click", function(){
