@@ -17,7 +17,7 @@
  * under the License.
  */ 
  
-document.addEventListener("deviceready", onDeviceReady, false);
+
 
 function onDeviceReady(){
 	console.log("Device is ready.");
@@ -45,4 +45,5 @@ function onDeviceReady(){
     });
 };
 
+document.addEventListener("deviceready", onDeviceReady, false);
 
