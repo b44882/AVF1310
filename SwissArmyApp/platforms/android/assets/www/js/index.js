@@ -40,9 +40,57 @@ function onDeviceReady(){
 		}
 	});
 	
+
+	
+
+		
+	//RELOAD BUTTON//
     $("#reload").on("click", function(){
         window.location.reload();
     });
+    
+    //CAMERA BUTTON//
+    $("#camera").on("click", function(){
+		var onSuccess = function(imageData) {
+			var image = document.getElementById('myImage');
+			image.src = "data:image/jpeg;base64," + imageData;
+		}
+		var onFail = function(message) {
+			alert('Failed because: ' + message);
+		}
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });  
+    });
+    
+    //GEOLOCATION BUTTON//
+    $("#geolocation").on("click", function(){
+    	$("#geo_result").empty();
+		var success = function(position){
+		$('<ul>' +
+		  '<li>Latitude: '          + position.coords.latitude + '</li>' +
+		  '<li>Longitude: '         + position.coords.longitude + '</li>' +
+		  '<li>Altitude: '          + position.coords.altitude + '</li>' +
+		  '<li>Accuracy: '          + position.coords.accuracy + '</li>' +
+		  '<li>Altitude Accuracy: ' + position.coords.altitudeAccuracy + '</li>' +
+		  '<li>Timestamp: '         + new Date(position.timestamp) + '</li>').appendTo("#geo_result");
+		};
+		var error = function(){
+			$('<p>Error!</p>').appendTo("#geo_result");
+		};
+		navigator.geolocation.getCurrentPosition(success, error);
+    });
+    
+    //NOTIFICATION BUTTON//
+    $("#notification").on("click", function(){
+    	var alertDismissed = function(){};  	
+		navigator.notification.alert(
+			'This is a test alert!',  // message
+			alertDismissed,          // callback
+			'Test Alert',            // title
+			'Close Alert'            // buttonName
+		);
+    });
+    
+    
 };
 
 document.addEventListener("deviceready", onDeviceReady, false);
