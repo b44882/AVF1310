@@ -50,6 +50,8 @@
 		CEE081361A894CAD9A04854F /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 538DC3351A39452ABCB15CF2 /* CDVNotification.m */; };
 		636915F078FC46A5A339E430 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9094902C6604F12AD064838 /* CDVNotification.bundle */; };
 		A8F89FA595274BE2B1FD6131 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 822861D4DF3E4F8187016FC7 /* CDVVibration.m */; };
+		A572FEF62F964C3683CBD680 /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = BD88C72292834AC8AC185449 /* CDVCompass.m */; };
+		EB73A82A0498498CACD7A54A /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5908AD419044CAB800A4D41 /* CDVAccelerometer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,10 @@
 		E9094902C6604F12AD064838 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
 		822861D4DF3E4F8187016FC7 /* CDVVibration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVVibration.m"; path = "org.apache.cordova.vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		3849D893D9C14326996D43B2 /* CDVVibration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVVibration.h"; path = "org.apache.cordova.vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		BD88C72292834AC8AC185449 /* CDVCompass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCompass.m"; path = "org.apache.cordova.device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		038E9010FBD34C9C80B52111 /* CDVCompass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCompass.h"; path = "org.apache.cordova.device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E5908AD419044CAB800A4D41 /* CDVAccelerometer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAccelerometer.m"; path = "org.apache.cordova.device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C48F74502F754294AFE5CCD2 /* CDVAccelerometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAccelerometer.h"; path = "org.apache.cordova.device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +290,10 @@
 				B70B5FDC17FC430CAE01CF7E /* CDVNotification.h */,
 				822861D4DF3E4F8187016FC7 /* CDVVibration.m */,
 				3849D893D9C14326996D43B2 /* CDVVibration.h */,
+				BD88C72292834AC8AC185449 /* CDVCompass.m */,
+				038E9010FBD34C9C80B52111 /* CDVCompass.h */,
+				E5908AD419044CAB800A4D41 /* CDVAccelerometer.m */,
+				C48F74502F754294AFE5CCD2 /* CDVAccelerometer.h */,
 			);
 			name = Plugins;
 			path = SwissArmyApp/Plugins;
@@ -457,6 +467,8 @@
 				A92303142631425ABE82FCF9 /* CDVJpegHeaderWriter.m in Sources */,
 				CEE081361A894CAD9A04854F /* CDVNotification.m in Sources */,
 				A8F89FA595274BE2B1FD6131 /* CDVVibration.m in Sources */,
+				A572FEF62F964C3683CBD680 /* CDVCompass.m in Sources */,
+				EB73A82A0498498CACD7A54A /* CDVAccelerometer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

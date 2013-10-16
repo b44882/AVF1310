@@ -66,6 +66,11 @@ a {
 }
 
 .dump { 
+
+}
+
+img{
+	max-width:100%
 	border:1px solid #021a40;
 	border-radius: 4px;
 	margin: 3px;
@@ -74,10 +79,6 @@ a {
 	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
 	-moz-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
 	box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
-}
-
-img{
-	max-width:100%
 }
 
 

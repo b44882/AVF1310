@@ -40,10 +40,6 @@ function onDeviceReady(){
 		}
 	});
 	
-
-	
-
-		
 	//RELOAD BUTTON//
     $("#reload").on("click", function(){
         window.location.reload();
@@ -57,6 +53,22 @@ function onDeviceReady(){
     //CAMERA BUTTON//
     $("#camera").on("click", function(){
     	console.log("Camera Pressed");
+    	var pictureSource = navigator.camera.PictureSourceType;
+    	    destinationType = navigator.camera.DestinationType
+    	    
+    	var onPhotoDataSuccess = function(imageData){
+    		$('<img src="data:image/jpeg;base64,' + imageData + '"</img>').appendTo("#pictures");
+    	};
+    	
+    	var onFail = function(message) {
+    		alert('Failed because: ' + message);
+    	}
+    	
+    	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
+
+    	
+
+        /*
 		var onSuccess = function(imageData) {
 			var image = document.getElementById('myImage');
 			image.src = "data:image/jpeg;base64," + imageData;
@@ -65,36 +77,76 @@ function onDeviceReady(){
 			alert('Failed because: ' + message);
 		}
 		navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });  
+		*/
     });
+    	
     
     //GEOLOCATION BUTTON//
     $("#geolocation").on("click", function(){
     	console.log("Geolocation Pressed");
-    	$("#geo_result").empty();
-		var success = function(position){
-		$('<ul>' +
-		  '<li>Latitude: '          + position.coords.latitude + '</li>' +
-		  '<li>Longitude: '         + position.coords.longitude + '</li>' +
-		  '<li>Altitude: '          + position.coords.altitude + '</li>' +
-		  '<li>Accuracy: '          + position.coords.accuracy + '</li>' +
-		  '<li>Altitude Accuracy: ' + position.coords.altitudeAccuracy + '</li>' +
-		  '<li>Timestamp: '         + new Date(position.timestamp) + '</li>').appendTo("#geo_result");
+    	$("#result").empty();
+			var onSuccess = function(position){
+			$('<h2>Geolocation</h2>' +
+			  '<ul>' +
+			  '<li>Latitude: '          + position.coords.latitude + '</li>' +
+			  '<li>Longitude: '         + position.coords.longitude + '</li>' +
+			  '<li>Altitude: '          + position.coords.altitude + '</li>' +
+			  '<li>Accuracy: '          + position.coords.accuracy + '</li>' +
+			  '<li>Altitude Accuracy: ' + position.coords.altitudeAccuracy + '</li>' +
+			  '<li>Timestamp: '         + new Date(position.timestamp) + '</li>').appendTo("#result");
 		};
-		var error = function(error){
-			$('<p>Code: '   + error.code + '</p>' +
-			  '<p>Message: ' + error.message + '</p>').appendTo("#geo_result");
+		var onError = function(error){
+			$('<h2>Geolocation Error</h2>' +
+			  '<ul>' +
+			  '<li>Code: '   + error.code + '</li>' +
+			  '<li>Message: ' + error.message + '</li>').appendTo("#result");
 		};
-		navigator.geolocation.getCurrentPosition(success, error);
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    });
+    
+    //COMPASS BUTTON//
+    $("#compass").on("click", function(){
+    	console.log("Compass Pressed");
+    	$("#result").empty();
+    	var onSuccess = function(heading){
+    		$('<h2>Compass</h2>' +
+    		  '<ul>' +
+    		  '<li>Heading: ' + heading.magneticHeading + '</li>').appendTo("#result");
+    	};
+    	var onError = function(compassError){
+    	    $('<h2>Compass Error</h2>' +
+    		  '<ul>' +
+    		  '<li>Compass Error: ' + compassError.code + '</li>').appendTo("#result");
+    	}
+    	navigator.compass.getCurrentHeading(onSuccess, onError);
+    });
+    
+    //ACCELEROMETER BUTTON//
+    $("#accelorometer").on("click", function(){
+    	console.log("Accelerometer Pressed");
+    	$("#result").empty();
+    	var onSuccess = function(acceleration){
+    		$('<h2>Accelerometer</h2>' +
+    		  '<ul>' +
+    		  '<li>Accelerator X: ' + acceleration.x + '</li>' +
+    		  '<li>Accelerator Y: ' + acceleration.y + '</li>' +
+    		  '<li>Accelerator Z: ' + acceleration.z + '</li>').appendTo("#result");
+    	};
+    	var onError = function(){
+    	    $('<h2>Accelerator Error</h2>' +
+    		  '<ul>' +
+    		  '<li>Accelerator Error: Error! </li>').appendTo("#result");
+    	}
+    	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
     });
     
     //NOTIFICATION BUTTON//
     $("#notification").on("click", function(){
-    	console.log("Notification Pressed");
-    	var alertDismissed = function(){};  	
+    	console.log("Notification Pressed");	
 		navigator.notification.alert(
-			'This is a test alert!',  // message
-			alertDismissed(),          // callback
-			'Test Alert',            // title
+			'This is a test notification!',  // message
+			function(){},          // callback
+			'Test Notification',            // title
 			'Close Alert'            // buttonName
 		);
     });
