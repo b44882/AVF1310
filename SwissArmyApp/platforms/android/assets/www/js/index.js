@@ -49,8 +49,14 @@ function onDeviceReady(){
         window.location.reload();
     });
     
+    //CLOSE BUTTON//
+    $("#close").on("click", function(){
+        navigator.app.exitApp();
+    });
+    
     //CAMERA BUTTON//
     $("#camera").on("click", function(){
+    	console.log("Camera Pressed");
 		var onSuccess = function(imageData) {
 			var image = document.getElementById('myImage');
 			image.src = "data:image/jpeg;base64," + imageData;
@@ -63,6 +69,7 @@ function onDeviceReady(){
     
     //GEOLOCATION BUTTON//
     $("#geolocation").on("click", function(){
+    	console.log("Geolocation Pressed");
     	$("#geo_result").empty();
 		var success = function(position){
 		$('<ul>' +
@@ -73,18 +80,20 @@ function onDeviceReady(){
 		  '<li>Altitude Accuracy: ' + position.coords.altitudeAccuracy + '</li>' +
 		  '<li>Timestamp: '         + new Date(position.timestamp) + '</li>').appendTo("#geo_result");
 		};
-		var error = function(){
-			$('<p>Error!</p>').appendTo("#geo_result");
+		var error = function(error){
+			$('<p>Code: '   + error.code + '</p>' +
+			  '<p>Message: ' + error.message + '</p>').appendTo("#geo_result");
 		};
 		navigator.geolocation.getCurrentPosition(success, error);
     });
     
     //NOTIFICATION BUTTON//
     $("#notification").on("click", function(){
+    	console.log("Notification Pressed");
     	var alertDismissed = function(){};  	
 		navigator.notification.alert(
 			'This is a test alert!',  // message
-			alertDismissed,          // callback
+			alertDismissed(),          // callback
 			'Test Alert',            // title
 			'Close Alert'            // buttonName
 		);

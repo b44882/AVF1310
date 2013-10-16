@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -45,6 +44,12 @@
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		56645B5EA6C846D6B19D4DAB /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B51F6D9539E04D578FDD12AB /* CDVLocation.m */; };
+		7F61EF5F3F5F46A383917F1F /* CDVCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A84070CBDE1402280DC4902 /* CDVCamera.m */; };
+		A92303142631425ABE82FCF9 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E2121A84CA4A8CAA9AACC7 /* CDVJpegHeaderWriter.m */; };
+		CEE081361A894CAD9A04854F /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 538DC3351A39452ABCB15CF2 /* CDVNotification.m */; };
+		636915F078FC46A5A339E430 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9094902C6604F12AD064838 /* CDVNotification.bundle */; };
+		A8F89FA595274BE2B1FD6131 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 822861D4DF3E4F8187016FC7 /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +115,18 @@
 		8D1107310486CEB800E47090 /* SwissArmyApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwissArmyApp-Info.plist"; path = "../SwissArmyApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = SwissArmyApp/config.xml; sourceTree = "<group>"; };
+		B51F6D9539E04D578FDD12AB /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3BCA44D926CD4F74A991EC25 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5A84070CBDE1402280DC4902 /* CDVCamera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCamera.m"; path = "org.apache.cordova.camera/CDVCamera.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		07E2121A84CA4A8CAA9AACC7 /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVJpegHeaderWriter.m"; path = "org.apache.cordova.camera/CDVJpegHeaderWriter.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		38F45CCF465D489E816FDF1E /* CDVCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCamera.h"; path = "org.apache.cordova.camera/CDVCamera.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F13C92D3EFB247E2A8EE6DB6 /* CDVJpegHeaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVJpegHeaderWriter.h"; path = "org.apache.cordova.camera/CDVJpegHeaderWriter.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		EA45D52E4E1841CCB5D3522F /* CDVExif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVExif.h"; path = "org.apache.cordova.camera/CDVExif.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		538DC3351A39452ABCB15CF2 /* CDVNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVNotification.m"; path = "org.apache.cordova.dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B70B5FDC17FC430CAE01CF7E /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "org.apache.cordova.dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		E9094902C6604F12AD064838 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
+		822861D4DF3E4F8187016FC7 /* CDVVibration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVVibration.m"; path = "org.apache.cordova.vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3849D893D9C14326996D43B2 /* CDVVibration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVVibration.h"; path = "org.apache.cordova.vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +231,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* SwissArmyApp-Info.plist */,
+				E9094902C6604F12AD064838 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = SwissArmyApp/Resources;
@@ -255,6 +273,17 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				B51F6D9539E04D578FDD12AB /* CDVLocation.m */,
+				3BCA44D926CD4F74A991EC25 /* CDVLocation.h */,
+				5A84070CBDE1402280DC4902 /* CDVCamera.m */,
+				07E2121A84CA4A8CAA9AACC7 /* CDVJpegHeaderWriter.m */,
+				38F45CCF465D489E816FDF1E /* CDVCamera.h */,
+				F13C92D3EFB247E2A8EE6DB6 /* CDVJpegHeaderWriter.h */,
+				EA45D52E4E1841CCB5D3522F /* CDVExif.h */,
+				538DC3351A39452ABCB15CF2 /* CDVNotification.m */,
+				B70B5FDC17FC430CAE01CF7E /* CDVNotification.h */,
+				822861D4DF3E4F8187016FC7 /* CDVVibration.m */,
+				3849D893D9C14326996D43B2 /* CDVVibration.h */,
 			);
 			name = Plugins;
 			path = SwissArmyApp/Plugins;
@@ -329,7 +358,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 500;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SwissArmyApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -392,6 +421,7 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				636915F078FC46A5A339E430 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +452,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				56645B5EA6C846D6B19D4DAB /* CDVLocation.m in Sources */,
+				7F61EF5F3F5F46A383917F1F /* CDVCamera.m in Sources */,
+				A92303142631425ABE82FCF9 /* CDVJpegHeaderWriter.m in Sources */,
+				CEE081361A894CAD9A04854F /* CDVNotification.m in Sources */,
+				A8F89FA595274BE2B1FD6131 /* CDVVibration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
