@@ -57,7 +57,7 @@ function onDeviceReady(){
     	    destinationType = navigator.camera.DestinationType
     	    
     	var onPhotoDataSuccess = function(imageData){
-    		$('<img src="data:image/jpeg;base64,' + imageData + '"</img>').appendTo("#pictures");
+    		$('<img style="border:1px solid #021a40;border-radius: 4px;margin: 3px;width:6em;height:6em	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;-moz-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;" src="data:image/jpeg;base64,' + imageData + '"</img>').appendTo("#pictures");
     	};
     	
     	var onFail = function(message) {
