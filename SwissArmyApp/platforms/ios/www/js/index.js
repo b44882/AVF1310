@@ -57,7 +57,7 @@ function onDeviceReady(){
     	    destinationType = navigator.camera.DestinationType
     	    
     	var onPhotoDataSuccess = function(imageData){
-    		$('<img style="border:1px solid #021a40;border-radius: 4px;margin: 3px;width:6em;height:6em	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;-moz-box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;" src="data:image/jpeg;base64,' + imageData + '"</img>').appendTo("#pictures");
+    		$('<img src="data:image/jpeg;base64,' + imageData + '"</img>').appendTo("#pictures");
     	};
     	
     	var onFail = function(message) {
@@ -86,7 +86,10 @@ function onDeviceReady(){
     	console.log("Geolocation Pressed");
     	$("#result").empty();
 			var onSuccess = function(position){
+				var lat = position.coords.latitude;
+				var lon = position.coords.longitude;
 			$('<h2>Geolocation</h2>' +
+			  '<img id="gmap" src="http://maps.googleapis.com/maps/api/staticmap?&markers=color:red|'+lat+','+lon+'&sensor=false&zoom=12&size=300x250&sensor=false"></img>' +
 			  '<ul>' +
 			  '<li>Latitude: '          + position.coords.latitude + '</li>' +
 			  '<li>Longitude: '         + position.coords.longitude + '</li>' +
@@ -101,7 +104,7 @@ function onDeviceReady(){
 			  '<li>Code: '   + error.code + '</li>' +
 			  '<li>Message: ' + error.message + '</li>').appendTo("#result");
 		};
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true});
     });
     
     //COMPASS BUTTON//
@@ -150,6 +153,34 @@ function onDeviceReady(){
 			'Close Alert'            // buttonName
 		);
     });
+    //WEATHER BUTTON//
+    $("#weather").on("click", function(){
+    	console.log("Weather Pressed");
+    	var onSuccess = function(position){
+			$("#result").empty();
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			var urlWeather = "http://api.aerisapi.com/observations/closest?p="+lat+","+lon+"&client_id=EorNqRHoewX9y8dwUvGE3&client_secret=pNKAASS4dPHTubEOXvDJe9ijX86wxM0FjPXPygs1";
+			$.getJSON(urlWeather, function(info){
+				console.log("Received JSON data from Aeris");
+				console.log(info);
+				var obj = info.response[0];
+				$('<h2>Weather</h2>' +
+				  '<ul>' +
+				  '<li>' + obj.place.name + '</li>' +
+				  '<li>' + obj.ob.weather + '</li>' +
+				  '<li>' + obj.ob.tempF + 'F</li>').appendTo("#result");
+			});
+		}
+		var onError = function(error){
+			$('<h2>Geolocation Error</h2>' +
+			  '<ul>' +
+			  '<li>Code: '   + error.code + '</li>' +
+			  '<li>Message: ' + error.message + '</li>').appendTo("#result");
+		};
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true});
+	});
+    
     
     
 };

@@ -101,7 +101,7 @@ function onDeviceReady(){
 			  '<li>Code: '   + error.code + '</li>' +
 			  '<li>Message: ' + error.message + '</li>').appendTo("#result");
 		};
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true});
     });
     
     //COMPASS BUTTON//
@@ -150,6 +150,34 @@ function onDeviceReady(){
 			'Close Alert'            // buttonName
 		);
     });
+    //WEATHER BUTTON//
+    $("#weather").on("click", function(){
+    	console.log("Weather Pressed");
+    	var onSuccess = function(position){
+			$("#result").empty();
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			var urlWeather = "http://api.aerisapi.com/observations/closest?p="+lat+","+lon+"&client_id=EorNqRHoewX9y8dwUvGE3&client_secret=pNKAASS4dPHTubEOXvDJe9ijX86wxM0FjPXPygs1";
+			$.getJSON(urlWeather, function(info){
+				console.log("Received JSON data from Aeris");
+				console.log(info);
+				var obj = info.response[0];
+				$('<h2>Weather</h2>' +
+				  '<ul>' +
+				  '<li>' + obj.place.name + '</li>' +
+				  '<li>' + obj.ob.weather + '</li>' +
+				  '<li>' + obj.ob.tempF + 'F</li>').appendTo("#result");
+			});
+		}
+		var onError = function(error){
+			$('<h2>Geolocation Error</h2>' +
+			  '<ul>' +
+			  '<li>Code: '   + error.code + '</li>' +
+			  '<li>Message: ' + error.message + '</li>').appendTo("#result");
+		};
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true});
+	});
+    
     
     
 };
